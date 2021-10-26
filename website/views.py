@@ -14,7 +14,15 @@ def index(request):
 def home(request):
     if request.user.is_authenticated:
         reservation_list = Reservation.objects.filter(user_id = request.user)
-        context = {'reservation_list': reservation_list}
+        total =0
+        number = 0
+        can_change = True
+        for reservation in reservation_list:
+            total = total + reservation.price
+            number = number + 1
+            if number >=8:
+                can_change = False
+        context = {'reservation_list': reservation_list,'total':total,'number':number,'can_change':can_change}
     else:
         context = {}
     return render(request, 'home.html', context)

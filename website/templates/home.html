@@ -14,11 +14,11 @@
             <ul class="list-group mb-3">
               <li class="list-group-item d-flex justify-content-between">
                 <span>Número de Reservas</span>
-                <strong >{{ user.userprofile.number }}</strong>
+                <strong >{{ number }}</strong>
               </li>
               <li class="list-group-item d-flex justify-content-between">
                 <span>Total</span>
-                <strong >R$<strong id="preço">{{ user.userprofile.total }}</strong></strong>
+                <strong >R$<strong id="preço">{{ total }}</strong></strong>
               </li>
             </ul>
             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -26,7 +26,7 @@
                     <h4>Pago</h4>
                 {% endif %}
             </h4>
-            {% if user.userprofile.can_change %}
+            {% if can_change %}
                 <button onclick="location.href='{% url 'reservation' %}'"type="button" class="btn btn-warning">Adicionar Reserva</button>
             {% else %}
                 <h4>Limite de 8 reservas excedido!</h4>
