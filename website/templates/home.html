@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+<br/><br/>
+    {% if user.is_authenticated %}
+        <div class="row">
+          <div class="col-md-4 order-md-2 mb-4 offset-md-3">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Sua reserva</span>
+                <h4>Name: {{ user.first_name }} {{ user.last_name }}</h4>
+                <h4>Usuário: {{ user.username }}</h4>
+                <h4>Telefone: {{ user.userprofile.phone_number }}</h4>
+            </h4>
+
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Número de Reservas</span>
+                <strong >{{ user.userprofile.number }}</strong>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total</span>
+                <strong >R$<strong id="preço">{{ user.userprofile.total }}</strong></strong>
+              </li>
+            </ul>
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                {% if user.userprofile.paid %}
+                    <h4>Pago</h4>
+                {% endif %}
+            </h4>
+            {% if user.userprofile.can_change %}
+                <button onclick="location.href='{% url 'reservation' %}'"type="button" class="btn btn-warning">Adicionar Reserva</button>
+            {% else %}
+                <h4>Limite de 8 reservas excedido!</h4>
+            {% endif %}
+          </div>
+        </div>
+
+
+        {% for reservation in reservation_list %}
+        <div class="card border-warning mb-3 offset-md-3" style="max-width: 28rem;">
+            <div class="card-header"><strong>{{ reservation.name }}</strong></div>
+            <div class="card-body">
+                <h5 class="card-title">Valor: {{ reservation.price}}</h5>
+                <p class="card-text">Telefone: {{ reservation.phone_number }}</p>
+                <p class="card-text"><strong>Restrições</strong></p>
+                {% if reservation.gluten %}
+                    <p class="card-text">Glúten</p>
+                {% endif %}
+                {% if reservation.lactose %}
+                    <p class="card-text">Lactose</p>
+                {% endif %}
+                {% if reservation.vegan %}
+                    <p class="card-text">Vegano</p>
+                {% endif %}
+                {% if reservation.vegetarian %}
+                    <p class="card-text">Vegetariano</p>
+                {% endif %}
+                {% if reservation.kids_menu %}
+                    <p class="card-text"><strong>Escolha por prato Infantil</strong></p>
+                {% endif %}
+                <p class="card-text">Alergias: {{ reservation.alergies }}</p>
+                <p class="card-text">Observações: {{ reservation.obs }}</p>
+
+            </div>
+        </div>
+
+        {% endfor %}
+
+        
+        
+    </br>
+        <h4>Política de devolução</h4>
+        <ul>
+            <li>Após o pagamento dos ingressos, não haverá reembolso do valor pago.</li>
+            <li>A reserva sem pagamento pode ser cancelada pelo email <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></li>
+            <li>Alterações na reserva (como informação de restrições alimentares) podem ser realizadas até 5 de novembro pelo email <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></li>
+        </ul>
+    {% else %}
+        <h3 class="text-center">Crie seu cadastro <a href={% url 'register' %}>AQUI</a></h3>
+        <br>
+        <h4 class="text-center">ou</h4>
+        <br>
+        <h3 class="text-center">Efetue seu Login <a href={% url 'login' %}>AQUI</a></h3>
+
+    {% endif %}
+    <br/><br/>
+    <br/><br/>
+{% endblock %}

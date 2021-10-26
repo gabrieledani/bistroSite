@@ -1,0 +1,53 @@
+{% load static %}
+/* utilizar "!important" quando alterar uma classe para sobrepor ao CSS do bootstrap */
+
+.bg-dark{
+    background-color: rgb(12, 8, 8) !important;
+}
+
+.titleCard{
+    text-align: center;
+    padding: 20px;
+}
+
+.title{
+    padding-top: 40px;
+    vertical-align: middle;
+}
+
+.espaco{
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.bg-img-cardapio{
+    background-image: url("/static/IMAGENS/card.png");
+    background-size: cover;
+}
+
+.bg-img-capa{
+    background-image: url("/static/IMAGENS/capa.jpg");
+    background-size: cover;
+}
+
+.bg-img-reserva{
+    background-image: url("/static/IMAGENS/arte.png");
+    background-size: cover;
+}
+
+.btnComprar{
+    font-size: 30px;
+    padding: 15px 25px;
+}
+
+.bg-footer{
+    background: #f7f7f7;
+    padding-top: 20px;
+}
+
+.espaco-pequeno{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+

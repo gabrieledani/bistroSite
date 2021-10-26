@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br/><br/>
+
+<h2 class="text-center">Cadastro</h2>
+<br/><br/>
+<div class="col-md-6 offset-md-3">
+	<form method="POST" action="{% url 'register' %}">
+		{% csrf_token %}
+
+			{{ form.as_p }}
+            {{ profile_form.as_p }}
+
+		<input type="submit" value="Register" class="btn btn-secondary">
+	</form>
+</div>
+<br/><br/>
+    <br/><br/>
+{% endblock %}

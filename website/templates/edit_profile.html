@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br/><br/>
+<h2 class="text-center">Editar Cadastro</h2>
+<br/><br/>
+<div class="col-md-6 offset-md-3">
+	<form method="POST" action="{% url 'edit_profile' %}">
+		{% csrf_token %}
+            <p>Usuário: {{ user.username }}</p>
+			{{ form.as_p }}
+            {{ profile_form.as_p }}
+
+
+		<input type="submit" value="Editar Cadastro" class="btn btn-secondary">
+	</form>
+    <br/>
+</div>
+    <br/><br/>
+    <br/><br/>
+{% endblock %}
