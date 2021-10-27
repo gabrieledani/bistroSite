@@ -53,6 +53,7 @@ class SignUpForm(UserCreationForm):
 
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['username'].widget.attrs['placeholder'] = 'e-mail de usuário'
+        self.fields['username'].widget.attrs['style'] = 'text-transform:lowercase;'
         self.fields['username'].label = ''
         self.fields['username'].help_text = ''
         #self.fields['username'].help_text = '<span class="form-text text-muted"><small>Obrigatório</small></span>'
