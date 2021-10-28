@@ -15,6 +15,7 @@ def home(request):
     if request.user.is_authenticated:
         reservation_list = Reservation.objects.filter(user_id = request.user)
         total =0
+        total_f = '0,00'
         number = 0
         can_change = True
         for reservation in reservation_list:
