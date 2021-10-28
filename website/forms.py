@@ -8,13 +8,13 @@ class MakeReservation(forms.ModelForm):
         model = Reservation
         fields = ('name','phone_number','gluten','lactose','vegan','vegetarian','kids_menu','alergies','obs')
         labels = {
-            'name':'Nome:',
+            'name':'Nome Completo:',
             'phone_number':'Telefone:',
-            'gluten':'É intolerante à Glúten:',
+            'gluten':'É intolerante ao Glúten:',
             'lactose':'É intolerante à Lactose:',
             'vegan':'É Vegano',
             'vegetarian':'É Vegetariano',
-            'kids_menu':'Cardápio Infantil (Até 12 anos)-50% desconto!',
+            'kids_menu':'Cardápio Infantil (Até 12 anos)-Meia Entrada',
             'alergies':'Quais minhas Alergias?',
             'obs':'Observações:'
         }

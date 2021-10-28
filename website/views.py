@@ -19,10 +19,11 @@ def home(request):
         can_change = True
         for reservation in reservation_list:
             total = total + reservation.price
+            total_f = '{:.2f}'.format(total)
             number = number + 1
             if number >=8:
                 can_change = False
-        context = {'reservation_list': reservation_list,'total':total,'number':number,'can_change':can_change}
+        context = {'reservation_list': reservation_list,'total':total_f,'number':number,'can_change':can_change}
     else:
         context = {}
     return render(request, 'home.html', context)

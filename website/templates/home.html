@@ -3,10 +3,10 @@
 <br/><br/>
     {% if user.is_authenticated %}
         <div class="row">
-          <div class="col-md-4 order-md-2 mb-4 offset-md-3">
+          <div class="col-md-4 order-md-2 mb-4 offset-md-3" >
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Sua reserva</span>
-                <h4>Name: {{ user.first_name }} {{ user.last_name }}</h4>
+                <span class="text-muted">Suas reservas</span>
+                <h4>Nome: {{ user.first_name }} {{ user.last_name }}</h4>
                 <h4>Usuário: {{ user.username }}</h4>
                 <h4>Telefone: {{ user.userprofile.phone_number }}</h4>
             </h4>
@@ -75,12 +75,16 @@
             <li>PIX</li>
         </ul>
         <p>Após realizar sua reserva, um aluno entrará em contato com você para verificar a forma de pagamento.</p>
-        <p>Para realizar o <strong>pagamento em dinheiro</strong>, é preciso encontrar um dos alunos responsáveis pelo comercial na escola.</p>
-        <p>Entre em contato conosco pelo e-mail <strong>pagamento via PIX</strong>, utilize a chave chave PIX:boulevard.bistro2021@gmail.com. - CPF: ***.584.660.** - Instituição: Banco do Estado do Rio Grande do Sul S.A</p>
+        <ol>
+            <li>Para realizar o <strong>pagamento em dinheiro</strong>, é preciso encontrar um dos alunos responsáveis pelo comercial na escola.</li>
+            <li>Para realizar o <strong>pagamento via PIX</strong>, utilize a chave chave PIX: boulevard.bistro2021@gmail.com</li>
+        </ol>
+        <p></p>
         <p>Confira os dados no momento da transferência via PIX:
             <ul>
                 <li><strong>Primeiro nome do titular:</strong> Liliane</li>
                 <li><strong>CPF:</strong> ***.584.660-**</li>
+                <li><strong>Instituição:</strong>Banco do Estado do Rio Grande do Sul S.A</li>
             </ul>
         </p>
         <p>Após a transferência, é necessário o envio do comprovante de pagamento juntamente com o nome da pessoa que realizou o cadastro para o e-mail <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a>
@@ -92,6 +96,22 @@
             <li>A reserva sem pagamento pode ser cancelada pelo email <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></li>
             <li>Alterações na reserva (como informação de restrições alimentares) podem ser realizadas até 5 de novembro pelo email <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></li>
         </ul>
+        <h4>Protocolos de segurança</h4>
+        <p>A equipe responsável pelo Boulevard Bistrô deseja proporcionar um ambiente aconchegante e inesquecível, o que inclui zelar pela segurança e saúde das pessoas envolvidas. Devido a isso, apresentamos os protocolos do evento. </p>
+            </br>
+        <p>Todas essas regras estão de acordo com a vigilância sanitária da cidade de Flores da Cunha/RS, baseando-se na Portaria SES nº390/2021 para restaurantes, bares, lanchonetes e similares:</p>
+        <ul>
+            <li>É vedada a permanência de clientes em pé durante o consumo de alimentos e bebidas.</li>
+            <li>Apenas clientes sentados e em grupos de até no máximo oito pessoas por mesas.</li>
+            <li>É vedada música alta que prejudique a comunicação entre clientes.</li>
+            <li>Utilização de álcool 70% ou sanitizantes similares por funcionários e clientes, além de distanciamento e uso de máscara de maneira adequada sempre que a pessoa não estiver consumindo a refeição.</li>
+            <li>Aferição de temperatura na entrada.</li>
+            <li>Lotação máxima de 80% da capacidade do local ou dose única.máxima.</li>
+        </ul>
+        <p>Para dúvidas ou esclarecimentos das medidas apresentadas, entre em contato pelo e-mail <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></p>
+        <p>Todas as informações aqui presentes podem ser acessadas nas plataformas de informação do estado do Rio Grande do Sul, bem como na Secretaria de Saúde (SES).</p> 
+        <p>Informamos que tais protocolos de segurança são medidas provisórias, podendo sofrer alterações futuras por parte do governo e/ou Secretaria da Saúde.</p>
+
     {% else %}
         <h3 class="text-center">Crie seu cadastro <a href={% url 'register' %}>AQUI</a></h3>
         <br>
