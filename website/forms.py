@@ -4,30 +4,26 @@ from django import forms
 from .models import UserProfile,Reservation
 
 class MakeReservation(forms.ModelForm):
+    name = forms.CharField(label="Nome Completo:",max_length=100,widget=forms.TextInput(attrs={'class':'form-control'}))
+    phone_number = forms.CharField(label="Telefone",max_length=30,widget=forms.TextInput(attrs={'class':'form-control'}))
+    alergies = forms.CharField(label="Quais minhas Alergias?",max_length=100,widget=forms.TextInput(attrs={'class':'form-control'}))
+    obs = forms.CharField(label="Observações:",max_length=100,widget=forms.TextInput(attrs={'class':'form-control'}))
     class Meta:
         model = Reservation
         fields = ('name','phone_number','gluten','lactose','vegan','vegetarian','kids_menu','alergies','obs')
         labels = {
-            'name':'Nome Completo:',
-            'phone_number':'Telefone:',
             'gluten':'É intolerante ao Glúten:',
             'lactose':'É intolerante à Lactose:',
             'vegan':'É Vegano',
             'vegetarian':'É Vegetariano',
             'kids_menu':'Cardápio Infantil (Até 12 anos)-Meia Entrada',
-            'alergies':'Quais minhas Alergias?',
-            'obs':'Observações:'
         }
         widgets = {
-            'name':forms.TextInput(attrs={'class':'form-control'}),
-            'phone_number':forms.TextInput(attrs={'class':'form-control'}),
             'gluten':forms.CheckboxInput( attrs={'class':'form-check-input'}),
             'lactose':forms.CheckboxInput(attrs={'class':'form-check-input'}),
             'vegan':forms.CheckboxInput(attrs={'class':'form-check-input'}),
             'vegetarian':forms.CheckboxInput(attrs={'class':'form-check-input'}),
             'kids_menu':forms.CheckboxInput(attrs={'class':'form-check-input'}),
-            'alergies':forms.Textarea(attrs={'class':'form-control'}),
-            'obs':forms.Textarea(attrs={'class':'form-control'})
         }
 
 class EditProfileForm(UserChangeForm):
@@ -70,7 +66,7 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Informe a mesma senha informada anteriormente, para verificação.</small></span>'
 
 class UserProfileForm(forms.ModelForm):
-    phone_number = forms.CharField(label="Telefone", widget=forms.TextInput(attrs={'class':'form-control'}),required=True)
+    phone_number = forms.CharField(max_length=100,label="Telefone", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'54-99999-9999'}),required=True)
     link = forms.ChoiceField(label="Seu vínculo com a escola:",
                             initial='',widget=forms.Select(attrs={'class':'form-select'}),
                              choices=((1, "Aluno"),
@@ -79,7 +75,7 @@ class UserProfileForm(forms.ModelForm):
                                         (4, "Coordenação"),
                                         (5, "Outro")),
                                 required=True)
-    link_school =forms.CharField(label="Aluno com quem tem associação:", widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
+    link_school =forms.CharField(max_length=100,label="Aluno com quem tem associação:", widget=forms.TextInput(attrs={'class': 'form-control'}),required=False)
 
     class Meta:
         model = UserProfile
