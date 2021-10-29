@@ -7,6 +7,10 @@
 
     {% else %}
         <div class="col-md-6 offset-md-3">
+            <h3>Lembre-se de cadastrar a sua reserva e incluir cada um dos seus acompanhantes em reservas diferentes! </h3>
+            
+            <br>
+
             <form method="POST" action="{% url 'reservation' %}">
                 {% csrf_token %}
                     {% if user.is_authenticated %}

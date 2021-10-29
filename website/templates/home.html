@@ -28,8 +28,6 @@
             </h4>
             {% if can_change %}
                 <button onclick="location.href='{% url 'reservation' %}'"type="button" class="btn btn-warning">Adicionar Reserva</button>
-            {% else %}
-                <h4>Limite de 8 reservas excedido!</h4>
             {% endif %}
           </div>
         </div>
