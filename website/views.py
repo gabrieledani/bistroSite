@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib import messages
 from .forms import SignUpForm, EditProfileForm, UserProfileForm, MakeReservation
-from .models import Reservation
+from .models import Reservation, UserProfile
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
 
@@ -122,17 +122,10 @@ def reservation(request):
             reservation = form.save(commit=False)
             reservation.user = request.user
             if reservation.kids_menu:
-                reservation.price = 48.5
+                reservation.price = 55
             else:
-                reservation.price = 97
+                reservation.price = 110
             form.save()
-
-            '''send_mail(
-            	#subject,
-            	#mesage,
-            	#from email
-				#to email->['gabrieledani@gmail.com','teste@teste.com'],
-            	)'''
 
             return HttpResponseRedirect('/reservation?submitted=True')
     else:
@@ -143,7 +136,3 @@ def reservation(request):
 
     return render(request,'reservation.html',context)
 
-def all_reservations(request):
-    reservation_list = Reservation.objects.all()
-    context = {'reservation_list':reservation_list}
-    return render(request,'home.html',context)

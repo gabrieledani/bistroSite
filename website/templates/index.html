@@ -11,7 +11,23 @@
     <!-- CSS Autoral com as alterações desejadas -->
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <!--Só tem um problema parece que eu só tenho acesso a pagina que vc esta editando-->
+    <script type="text/javascript">
+        function myFunction() {
+          var dots = document.getElementById("dots");
+          var moreText = document.getElementById("more");
+          var btnText = document.getElementById("myBtn");
 
+          if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+          } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Leia Menos";
+            moreText.style.display = "inline";
+          }
+        }      
+    </script>
 </head>
 <body class="bg-dark">
   <!-- Links dos JavaScrip's do Bootstrap-->
@@ -26,13 +42,13 @@
         </a>
     
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 titleCard">
-          <li><a href="#apresentacao" class="nav-link px-2 text-white">O Bistrô</a></li>
-          <li><a href="#cardapio" class="nav-link px-2 text-white">Cardápio</a></li>
-          <li><a href="#reserva" class="nav-link px-2 text-white">Reserva</a></li>
+          <li><a href="#apresentacao" class="nav-link px-4 text-white" style="font-size: 2.25rem">O Bistrô</a></li>
+          <li><a href="#cardapio" class="nav-link px-4 text-white" style="font-size: 2.25rem">Cardápio</a></li>
+          <li><a href="#reserva" class="nav-link px-4 text-white" style="font-size: 2.25rem">Reserva</a></li>
         </ul>
 
         <div class="text-end">
-          <button type="button" onclick="location.href='{% url 'home' %}'"  class="btn btn-warning">Reservar Ingressos</button>
+          <button type="button" onclick="location.href='{% url 'home' %}'"  class="btn btn-warning btn-lg">Reservar Ingressos</button>
         </div>
       </div>
     </div>
@@ -44,35 +60,36 @@
       <div class="row row-cols-1 row-cols-2 espaco">
         <div class="col">
           <h3 class="text-white">O que é o Boulevard Bistrô?</h3>
-
-          <p class="text-white">
-            O Boulevard Bistrô é um evento gastronômico desenvolvido em conjunto pelos cursos técnicos de Administração, Gastronomia e Informática do CETEC UCS. Os alunos são responsáveis por todo o evento, que envolve atividades de marketing, finanças, gestão de pessoas, logística, comercial, plataformas digitais de gerenciamento de ingressos e reservas, e o desenvolvimento e preparação dos pratos.
-          </p>
-          <p class="text-white">
-            A edição deste ano traz o tema "Uma Noite em Las Vegas". Conhecida oficialmente como Las Vegas Boulevard, a Strip de Las Vegas é a avenida mais famosa da cidade, nela estão os hotéis e cassinos mais famosos. Cada detalhe foi pensado para que você experimente Las Vegas por uma noite.
-          </p>
-          <p class="text-white">
+          <br>
+          <h4 class="text-white">
+            O Boulevard Bistrô é um evento gastronômico desenvolvido em conjunto pelos cursos técnicos de Administração, Gastronomia e Informática do CETEC UCS.
+            <br><br>
+            <strong><u>Quando?</u></strong> 10 e 11* de novembro às 19:30.
+            <br>
+            <small>*data disponível após a venda de todos ingressos do dia 10.</small>
+            <br><br>
+            <strong><u>Onde?</u></strong> Ristorante Dolce Itália, junto à Escola de Gastronomia da UCS. Av. Vindima, 1000 - Vindima, Flores da Cunha - RS, 95270-000
+            <br><br>
+            <strong><u>Quanto?</u></strong> R$ 110 adulto e R$ 55 cardápio kids para crianças de até 12 anos.
+            <span id="dots"> </span><button onclick="myFunction()" id="myBtn" class="btn btn-light">Leia Mais</button><br>
+            <span id="more" style="display:none;">Os alunos são responsáveis por todo o evento, que envolve atividades de marketing, finanças, gestão de pessoas, logística, comercial, plataformas digitais de gerenciamento de ingressos e reservas, e o desenvolvimento e preparação dos pratos.<br>
+            A edição deste ano traz o tema "Uma Noite em Las Vegas". Conhecida oficialmente como Las Vegas Boulevard, a Strip de Las Vegas é a avenida mais famosa da cidade, nela estão os hotéis e cassinos mais famosos. Cada detalhe foi pensado para que você experimente Las Vegas por uma noite.<br>
             Esperamos você para essa experiência inesquecível, de vivências e sabores marcantes e memoráveis.
-          </p>
-          <h5 class="text-white">Quando? 10 e 11* de novembro.</h5>
-          <h5 class="text-white">Onde? Ristorante Dolce Itália, junto à Escola de Gastronomia da UCS. Av. Vindima, 1000 - Vindima, Flores da Cunha - RS, 95270-000</h5>
-          <h5 class="text-white">Quanto? R$ 97 adulto e R$ 48,5 cardápio kids para crianças de até 12 anos.</h5>
-          <p class="text-muted text-white">*data disponível após a venda de todos ingressos do dia 10.</p>
-          <h5 class="text-white"><strong>Atenção:</strong></h5>
-          <ul class="text-white">
-            <li>Lembre-se do uso de <strong>máscara</strong> no local, e evite transitar pelo restaurante sem ela.</li>
-            <li>Caso apresente sintomas de síndrome gripal, entre em contato conosco via e-mail com antecedência.</li>
-            <li>Mantenha o distanciamento social, principalmente nas entradas e saídas do local.</li>
-          </ul>
-          <h5 class="text-white"><strong>Para maiores informações:</strong></h5>
+          </span>
+          </h4>
+          <br>
+          <h4 class="text-white"><strong>Para maiores informações:</strong></h4>
           <h5 class="text-white">Instagram 
             <a href="https://instagram.com/boulevardbistro_" target="_blank"><img width="50" height ="50" src="{% static 'IMAGENS/tiny-instagram-icon-2.png'%}" alt=""></a>
           </h5>
-          <h5 class="text-white">e-mail:
-            <address >
-              <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a><br>
-            </address> 
-          </h5>
+          <h5 class="text-white">e-mail: <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></h5>
+          <br>
+          <h4 class="text-white"><strong>Atenção:</strong></h4>
+          <h5><ul class="text-white">
+            <li>Lembre-se do uso de <strong>máscara</strong> no local, e evite transitar pelo restaurante sem ela.</li>
+            <li>Caso apresente sintomas de síndrome gripal, entre em contato conosco via e-mail com antecedência.</li>
+            <li>Mantenha o distanciamento social, principalmente nas entradas e saídas do local.</li>
+          </ul></h5>
         </div>
         <div class="col">
           <img src="{% static 'IMAGENS/LOGO.png'%}" class="img-fluid" alt="Logo">
@@ -88,14 +105,16 @@
         <div class="row espaco">
           <div class="col">
             <h2 class="text-white">Cardápio</h2>
-            <h4 class="text-white">Uma noite no cassino: façam as suas apostas</h4>
-            <p class="text-white">
+            <h3 class="text-white">Uma noite no cassino: façam as suas apostas</h3>
+            <h4 class="text-white">
               Por meio da sequência de pratos da noite, buscamos contar a jornada do jogador em um cassino, do seu despertar ao final da partida. Usando expressões de jogos de azar, as cores e os ingredientes típicos do estado de Nevada levam você a se sentir em um dos famosos cassinos de Las Vegas.
-            </p>
+            </h4>
+              <h4>
               <ul class="text-white">
                 <li>Há também a possibilidade de um cardápio mais simples para crianças de até 12 anos.</li>
                 <li>Veganos, vegetarianos, pessoas intolerantes a glúten ou lactose e com outras alergias terão cardápio adaptado para suas restrições.</li>
               </ul>
+            </h4>
           </div>
           <div class="col">
             
@@ -104,7 +123,7 @@
       </div> 
     </div>
     <div class="container">
-      <h5 class="text-white espaco-pequeno">Confira o menu:</h5>
+      <h4 class="text-white espaco-pequeno">Confira o menu:</h4>
       
       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -121,56 +140,56 @@
           <div class="carousel-item active">
             <img src="{% static 'IMAGENS/Prancheta 1.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Amuse bouche: “O despertar do jogador”</h5>
+              <h4>Amuse bouche: “O despertar do jogador”</h5>
               <p>Blinis com truta defumada e sour cream com ervas frescas</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/Prancheta 2.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Couvert: “Primeira partida”</h5>
+              <h4>Couvert: “Primeira partida”</h4>
               <p>Pão de milho com pasta de abacate</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/Prancheta 3.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Entrada: “Em busca do Jackpot”</h5>
+              <h4>Entrada: “Em busca do Jackpot”</h4>
               <p>Fish and chips com salada coleslaw</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/Prancheta 4.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>1° Prato principal: “Dealer”</h5>
+              <h4>1° Prato principal: “Dealer”</h4>
               <p>Massa farfalle preta e vermelha com molho de conhaque e camarões</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/Prancheta 5.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>2º Prato principal: “Full house”</h5>
+              <h4>2º Prato principal: “Full house”</h4>
               <p>Costela suína com molho barbecue, creme de milho e quiabo grelhado</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/Prancheta 6.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Sobremesa: “Showdown”</h5>
+              <h4>Sobremesa: “Showdown”</h4>
               <p>Torta de maçã</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/glory.jpg'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>Petit four/Mimo: “Glory”</h5>
+              <h4>Petit four/Mimo: “Glory”</h4>
               <p>Tradicional biscoito americano de canela</p>
             </div>
           </div>
           <div class="carousel-item">
             <img src="{% static 'IMAGENS/Prancheta 6.png'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>“Cardápio Kids”</h5>
+              <h4>“Cardápio Kids”</h4>
               <p><strong>Joker</strong> (Bife bovino acompanhado de chips de batata) e <strong>Showdown</strong> (Sorvete de creme com crocante de amendoim e toffee de caramelo)</p>
             </div>
           </div>
@@ -186,7 +205,7 @@
       </div>
 
       <div class="espaco-pequeno">
-        <p class="text-white">Água e suco já estão inclusos ao menu.</p>
+        <h4 class="text-white">Água e suco já estão inclusos ao menu.</h4>
       </div>
     </div>
   </div>
@@ -218,7 +237,7 @@
       </h4>
       <h4 class="text-white" >Clique em Reservar Ingressos, faça seu cadastro e inclua todas as pessoas que irão com você.
       </h4>
-      <h6 class="text-white">Valor do ingresso por pessoa: R$97,00</h6>  
+      <h6 class="text-white">Valor do ingresso por pessoa: R$ 110 adulto e R$ 55 cardápio kids para crianças de até 12 anos.</h6>  
       <div class="titleCard">
         <button onclick="location.href='{% url 'home' %}'" type="button" class="btn btn-warning btnComprar">Reservar Ingressos</button>
       </div>
@@ -243,6 +262,8 @@
             <p class="mb-1">
               <address>
                 <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a><br>
+                <a href="https://instagram.com/boulevardbistro_" target="_blank"><img width="50" height ="50" src="{% static 'IMAGENS/tiny-instagram-icon-2.png'%}" alt=""></a>
+
               </address>              
             </p>
             <small class="d-block mb-3 text-muted">&copy 2021 Cetec Bistrô<br>Todos os direitos reservados</small>
