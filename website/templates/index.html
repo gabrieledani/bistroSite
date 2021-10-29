@@ -4,6 +4,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Boulevard Bistrô</title>
     <link rel="icon" href="{% static 'IMAGENS/LogoCETEC.ico'%}">
     <!-- Link do CSS do Bootstrap-->
@@ -57,11 +58,11 @@
   <!-- APRESENTAÇÃO -->
   <div id="apresentacao" class="bg-img-capa">
     <div class="container">
-      <div class="row row-cols-1 row-cols-2 espaco">
-        <div class="col">
+      <div class="row espaco">
+        <div class="col-sm">
           <h3 class="text-white">O que é o Boulevard Bistrô?</h3>
           <br>
-          <h4 class="text-white">
+          <p class="text-white">
             O Boulevard Bistrô é um evento gastronômico desenvolvido em conjunto pelos cursos técnicos de Administração, Gastronomia e Informática do CETEC UCS.
             <br><br>
             <strong><u>Quando?</u></strong> 10 e 11* de novembro às 19h.
@@ -78,15 +79,15 @@
             <br><br>
             <strong>Atenção:</strong>
             <br>
-            <h5>
+            
               <ul class="text-white">
                 <li>Lembre-se do uso de <strong>máscara</strong> no local, e evite transitar pelo restaurante sem ela.</li>
                 <li>Caso apresente sintomas de síndrome gripal, entre em contato conosco via e-mail com antecedência.</li>
                 <li>Mantenha o distanciamento social, principalmente nas entradas e saídas do local.</li>
               </ul>
-            </h5>
+            
           </span>
-          </h4>
+          </p>
           <br>
           <h4 class="text-white"><strong>Para maiores informações:</strong></h4>
           <h5 class="text-white">Instagram 
@@ -95,7 +96,7 @@
           <h5 class="text-white">e-mail: <a href="mailto:boulevard.bistro2021@gmail.com">boulevard.bistro2021@gmail.com</a></h5>
           <br>
         </div>
-        <div class="col">
+        <div class="col-sm">
           <img src="{% static 'IMAGENS/LOGO.png'%}" class="img-fluid" alt="Logo">
         </div>
       </div>
@@ -107,20 +108,20 @@
     <div class="bg-img-cardapio img-fluid">
       <div class="container">
         <div class="row espaco">
-          <div class="col">
+          <div class="col-sm">
             <h2 class="text-white">Cardápio</h2>
-            <h3 class="text-white">Uma noite no cassino: façam as suas apostas</h3>
-            <h4 class="text-white">
+            <h4 class="text-white">Uma noite no cassino: façam as suas apostas</h4>
+            <p class="text-white">
               Por meio da sequência de pratos da noite, buscamos contar a jornada do jogador em um cassino, do seu despertar ao final da partida. Usando expressões de jogos de azar, as cores e os ingredientes típicos do estado de Nevada levam você a se sentir em um dos famosos cassinos de Las Vegas.
-            </h4>
-              <h4>
+            </p>
+              <p>
               <ul class="text-white">
                 <li>Há também a possibilidade de um cardápio mais simples para crianças de até 12 anos.</li>
                 <li>Veganos, vegetarianos, pessoas intolerantes a glúten ou lactose e com outras alergias terão cardápio adaptado para suas restrições.</li>
               </ul>
-            </h4>
+            </p>
           </div>
-          <div class="col">
+          <div class="col-sm">
           </div>
         </div>
       </div> 
@@ -200,16 +201,16 @@
   <!-- COMO CHEGAR-->
   <div id="como-chegar">
     <div class="container">
-      <div class="row row-cols-1 row-cols-2 espaco-pequeno">
-        <div class="col">
+      <div class="row espaco-pequeno">
+        <div class="col-sm">
           <h4 class="text-white">Como chegar</h4>
-          <p class="text-white" style="font-size:1.3rem">
+          <p class="text-white">
             O Boulevard Bistrô será realizado no Ristorante Dolce Itália, em Flores da Cunha, junto à Escola de Gastronomia da UCS.
             <br><br>
             Av. Vindima, 1000 - Vindima, Flores da Cunha - RS, 95270-000
           </p>
         </div>
-        <div class="col">
+        <div class="col-sm">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3488.7431750827423!2d-51.178524685384076!3d-29.024592291549542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951e91557883a68b%3A0xfa50152a37dd62f7!2sRistorante%20Dolce%20Italia!5e0!3m2!1spt-BR!2sbr!4v1634836485797!5m2!1spt-BR!2sbr" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
@@ -219,13 +220,13 @@
   <!-- RESERVA -->
   <div id="reserva" class="bg-img-reserva">
     <div class="container titleCard espaco">
-      <h4 class="text-white" >
+      <h3 style="color:#F8F8FF;" >
         Faça a sua reserva para que possamos deixar tudo do seu jeitinho!
-      </h4>
-      <h4 class="text-white" >Clique em Reservar Ingressos, faça seu cadastro e inclua todas as pessoas que irão com você.
+      </h3>
+      <h4 style="color:#adadad;" >Clique em Reservar Ingressos, faça seu cadastro e inclua todas as pessoas que irão com você.
       </h4>
       <br>
-      <h6 class="text-white">Valor do ingresso por pessoa: R$ 110 adulto e R$ 55 cardápio kids para crianças de até 12 anos.</h6>  
+      <h6 style="color:#adadad;" >Valor do ingresso por pessoa: R$ 110 adulto e R$ 55 cardápio kids para crianças de até 12 anos.</h6>  
       <div class="titleCard">
         <button onclick="location.href='{% url 'home' %}'" type="button" class="btn btn-warning btnComprar">Reservar Ingressos</button>
       </div>
@@ -235,16 +236,16 @@
   <footer class="bg-footer">
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col-sm">
           <img src="{% static 'IMAGENS/Logo cetec.png'%}" alt="LOGO">
         </div>
-        <div class="col">
+        <div class="col-sm">
           <p class="text-small">
             Centro Tecnológico Universidade de Caxias do Sul <br> Blocos B, C e K - Campus-Sede
             <br> Caxias do Sul - RS - Brasil
           </p>
         </div>
-        <div class="col">
+        <div class="col-sm">
           <ul class="list-unstyled text-small">
             <p class="mb-1">Contato:</p>
             <p class="mb-1">

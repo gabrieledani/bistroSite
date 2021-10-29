@@ -1,6 +1,10 @@
 {% load static %}
 /* utilizar "!important" quando alterar uma classe para sobrepor ao CSS do bootstrap */
 
+.text-gr{
+    color: #F8F8FF;
+}
+
 .bg-dark{
     background-color: rgb(12, 8, 8) !important;
 }
