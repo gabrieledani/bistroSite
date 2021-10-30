@@ -4,7 +4,7 @@ from django import forms
 from .models import UserProfile,Reservation
 
 class MakeReservation(forms.ModelForm):
-    name = forms.CharField(label="Nome Completo:(Identifique-se e cada um de seus acompanhantes aqui)",max_length=100,widget=forms.TextInput(attrs={'class':'form-control'}))
+    name = forms.CharField(label="Nome Completo (Identifique-se e cada um de seus acompanhantes aqui)",max_length=100,widget=forms.TextInput(attrs={'class':'form-control'}))
     phone_number = forms.CharField(label="Telefone",max_length=30,widget=forms.TextInput(attrs={'class':'form-control'}),required=False)
     alergies = forms.CharField(label="Quais minhas Alergias?",max_length=100,widget=forms.Textarea(attrs={'class':'form-control'}),required=False)
     obs = forms.CharField(label="Observações:",max_length=100,widget=forms.Textarea(attrs={'class':'form-control'}),required=False)
