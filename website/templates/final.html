@@ -13,6 +13,7 @@
               <td><strong>Número de Reservas: </strong>{{ profile.number }}</td>
               <td><strong>Total R$ </strong>{{ profile.total }}</td>
               <td><strong>{% if profile.paid %} Pago {% endif %}</td>
+              <td><strong>Data da Reserva:</strong>{% if profile.user.email == '11@10.com'%} 11/11/2021 {%else%} 10/11/2021 {%endif%}</td>
             </tr>
           </tbody>
         </table>
