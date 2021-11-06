@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<br/><br/>
+
+    {% for profile in user_list %}
+        <table class="table table-dark">
+          <tbody>
+            <tr>
+              <td><strong>Nome: </strong>{{ profile.user.first_name }} {{ profile.user.last_name }}</td>
+              <td>{{ profile.user.username }}</td>
+              <td><strong>Telefone: </strong>{{ profile.phone_number }}</td>
+              <td><strong>Data Contratada: </strong>{{ profile.day }}</td>
+              <td><strong>Número de Reservas: </strong>{{ profile.number }}</td>
+              <td><strong>Total R$ </strong>{{ profile.total }}</td>
+              <td><strong>{% if profile.paid %} Pago {% endif %}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-warning table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Kids</th>
+              <th scope="col">Restrições</th>
+              <th scope="col">Alergias</th>
+              <th scope="col">Observações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for reservation in reservation_list %}
+                {% if reservation.user.id == profile.user.id %}
+                    <tr>
+                      <td>{{ reservation.name }}</td>
+                      <td>{{ reservation.price}}</td>
+                      <td>{% if reservation.kids_menu %}<strong> X </strong>{% endif %}</td>
+                      <td>{% if reservation.gluten %}
+                                [Intolerante ao Glúten] 
+                            {% endif %}
+                            {% if reservation.lactose %}
+                                [Intolerante à Lactose]
+                            {% endif %}
+                            {% if reservation.vegan %}
+                                [Vegano] 
+                            {% endif %}
+                            {% if reservation.vegetarian %}
+                                [Vegetariano]
+                            {% endif %}</td>
+                      <td>{{ reservation.alergies }}</td>
+                      <td>{{ reservation.obs }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+        </table>
+
+    {% endfor %}
+    <br/><br/>
+    <br/><br/>
+{% endblock %}

@@ -17,6 +17,7 @@ class UserProfile(models.Model):
     paid = models.BooleanField(default=False)
     number = models.IntegerField(default=0)
     can_change = models.BooleanField(default=True)
+    day = models.CharField(max_length=30,default="10/11/2021")
 
     def __str__(self):
         return self.user.username

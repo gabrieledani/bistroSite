@@ -136,3 +136,8 @@ def reservation(request):
 
     return render(request,'reservation.html',context)
 
+def final(request):
+    user_list = UserProfile.objects.all().order_by('user_id')
+    reservation_list = Reservation.objects.all().order_by('user_id')
+    context = {'user_list':user_list,'reservation_list':reservation_list}
+    return render(request,'final.html',context)

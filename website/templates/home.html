@@ -9,6 +9,7 @@
                 <h4>Nome: {{ user.first_name }} {{ user.last_name }}</h4>
                 <h4>Usuário: {{ user.username }}</h4>
                 <h4>Telefone: {{ user.userprofile.phone_number }}</h4>
+                <!--h4>Data Contratada: {{ user.userprofile.day }}</h4-->
             </h4>
 
             <ul class="list-group mb-3">
@@ -36,32 +37,36 @@
 
 
         {% for reservation in reservation_list %}
-        <div class="card border-warning mb-3 offset-md-3" style="max-width: 28rem;">
-            <div class="card-header"><strong>{{ reservation.name }}</strong></div>
-            <div class="card-body">
-                <h5 class="card-title">Valor: {{ reservation.price}}</h5>
-                <p class="card-text">Telefone: {{ reservation.phone_number }}</p>
-                <p class="card-text"><strong>Restrições</strong></p>
-                {% if reservation.gluten %}
-                    <p class="card-text">Glúten</p>
-                {% endif %}
-                {% if reservation.lactose %}
-                    <p class="card-text">Lactose</p>
-                {% endif %}
-                {% if reservation.vegan %}
-                    <p class="card-text">Vegano</p>
-                {% endif %}
-                {% if reservation.vegetarian %}
-                    <p class="card-text">Vegetariano</p>
-                {% endif %}
-                {% if reservation.kids_menu %}
-                    <p class="card-text"><strong>Escolha por prato Infantil</strong></p>
-                {% endif %}
-                <p class="card-text">Alergias: {{ reservation.alergies }}</p>
-                <p class="card-text">Observações: {{ reservation.obs }}</p>
+            <div class="card border-warning mb-3 offset-md-3" style="max-width: 28rem;">
+                <div class="card-header"><strong>{{ reservation.name }}</strong></div>
+                <div class="card-body">
+                    <h6 class="card-text">Valor: {{ reservation.price}}</h6>
+                    <h6 class="card-text"><strong>Restrições: </strong>
+                        {% if reservation.gluten %}
+                            [Intolerante ao Glúten] 
+                        {% endif %}
+                        {% if reservation.lactose %}
+                            [Intolerante à Lactose]
+                        {% endif %}
+                        {% if reservation.vegan %}
+                            [Vegano] 
+                        {% endif %}
+                        {% if reservation.vegetarian %}
+                            [Vegetariano]
+                        {% endif %}
+                    </h6>
+                    {% if reservation.kids_menu %}
+                        <h6 class="card-text"><strong>Escolha por Cardápio Infantil</strong></h6>
+                    {% endif %}
+                    {% if reservation.alergies != '' %}
+                        <h6 class="card-text">Alergias: {{ reservation.alergies }}</h6>
+                    {% endif %}
+                    {% if reservation.obs != '' %}
+                        <h6 class="card-text">Observações: {{ reservation.obs }}</h6>
+                    {% endif %}
 
+                </div>
             </div>
-        </div>
 
         {% endfor %}
 
