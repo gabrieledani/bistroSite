@@ -7,7 +7,7 @@
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Suas reservas</span>
                 <h4>Nome: {{ user.first_name }} {{ user.last_name }}</h4>
-                <h4 style="color:red">Reserva para jantar em: {% if user.email == '11@10.com'%} 11/11/2021 {%else%} 10/11/2021 {%endif%} </h4>
+                <h4 style="color:red">Reserva para jantar em: {% if user.email == '10@10.com'%} 10/11/2021 {%else%} 11/11/2021 {%endif%} </h4>
                 <h4>Usuário: {{ user.username }}</h4>
                 <h4>Telefone: {{ user.userprofile.phone_number }}</h4>
             </h4>
