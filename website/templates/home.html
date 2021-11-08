@@ -24,12 +24,13 @@
             </ul>
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 {% if user.userprofile.paid %}
-                    <h4>Pago</h4>
+                    <h3>Pago</h3>
                 {% endif %}
             </h4>
             {% if can_change %}
                 {% if user.userprofile.can_change %}
-                    <button onclick="location.href='{% url 'reservation' %}'"type="button" class="btn btn-warning">Adicionar Reserva</button>
+                    <!--button onclick="location.href='{% url 'reservation' %}'"type="button" class="btn btn-warning">Adicionar Reserva</button-->
+                    <br>
                 {% endif %}
             {% endif %}
           </div>
@@ -112,10 +113,10 @@
         <p>Informamos que tais protocolos de segurança são medidas provisórias, podendo sofrer alterações futuras por parte do governo e/ou Secretaria da Saúde.</p>
 
     {% else %}
-        <h3 class="text-center">Crie seu cadastro <a href={% url 'register' %}>AQUI</a></h3>
+        <!--h3 class="text-center">Crie seu cadastro <a href={% url 'register' %}>AQUI</a></h3>
         <br>
         <h4 class="text-center">ou</h4>
-        <br>
+        <br-->
         <h3 class="text-center">Efetue seu Login <a href={% url 'login' %}>AQUI</a></h3>
 
     {% endif %}
